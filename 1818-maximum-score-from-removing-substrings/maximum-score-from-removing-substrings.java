@@ -6,13 +6,20 @@ class Solution {
         String sb = new String();
         if(x > y)
         {
-            sb = calculate(s,'a','b', x);
-            sb = calculate(sb, 'b', 'a', y);
+            // sb = calculate(s,'a','b', x);
+            //  calculate(sb, 'b', 'a', y);
+
+             sb = OnCalculate(s,'a','b', x);
+             OnCalculate(sb, 'b', 'a', y);
+
         }
         else
         {
-            sb = calculate(s,'b','a', y);
-            sb = calculate(sb, 'a', 'b', x);
+            // sb = calculate(s,'b','a', y);
+            // sb = calculate(sb, 'a', 'b', x);
+
+            sb = OnCalculate(s,'b','a', y);
+            sb = OnCalculate(sb, 'a', 'b', x);
         }
         return result;
     }
@@ -44,5 +51,23 @@ class Solution {
             sb.append(stk.pop());
         }
         return sb.reverse().toString();
+    }
+
+
+    public String OnCalculate(String s , char first, char second, int points)
+    {
+    int n = s.length(); 
+        StringBuilder sb = new StringBuilder();
+        
+        for (int read = 0; read < n; read++) {
+            sb.append(s.charAt(read));
+            int write = sb.length();
+            if (write > 1 && sb.charAt(write - 1) == second && sb.charAt(write - 2) == first) {
+                sb.delete(write - 2, write); // Remove the last two characters
+                result += points;
+            }
+    
+    }
+    return sb.toString();
     }
 } 
