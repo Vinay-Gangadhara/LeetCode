@@ -1,46 +1,51 @@
 class Solution {
     public long minimumCost(int mgiven, int ngiven, int[] horizontalCut, int[] verticalCut) {
-
+    // keep 2 pointers for iterating the array
      int i = 0;
      int j = 0;
-
+    // initially we have 1 complete hor and 1 complete ver
      int hor = 1;
      int ver = 1;
-
+    // initialising the result
      long ans = 0;
-
+    // Keeping count of given array size;
     int m = horizontalCut.length;
     int n = verticalCut.length;
+    // Sorting the array in Desc order
+    horizontalCut = Arrays.stream(horizontalCut)
+                              .boxed()
+                              .sorted(Collections.reverseOrder())
+                              .mapToInt(Integer::intValue)
+                              .toArray();
 
-    // Convert to Integer arrays for sorting in descending order
-        Integer[] horizontalCutDesc = Arrays.stream(horizontalCut).boxed().toArray(Integer[]::new);
-        Integer[] verticalCutDesc = Arrays.stream(verticalCut).boxed().toArray(Integer[]::new);
+    verticalCut = Arrays.stream(verticalCut)
+                            .boxed()
+                            .sorted(Collections.reverseOrder())
+                            .mapToInt(Integer::intValue)
+                            .toArray();
 
-        // Sort the arrays in descending order
-        Arrays.sort(horizontalCutDesc, Collections.reverseOrder());
-        Arrays.sort(verticalCutDesc, Collections.reverseOrder());
-
-        // Convert back to int arrays if needed
-        horizontalCut = Arrays.stream(horizontalCutDesc).mapToInt(Integer::intValue).toArray();
-        verticalCut = Arrays.stream(verticalCutDesc).mapToInt(Integer::intValue).toArray();
-        
-
+    // Iterating to the array 
     while(i<m && j<n)
     {
+        //Take the largest value and cut it
         if(horizontalCut[i] >= verticalCut[j])
         {
+            //once cut multiply the cutting factor with No. remaining parts
             ans += (long)(ver* horizontalCut[i]);
+            // increment the cut part count
             hor++;
             i++;
         }
         else
         {
+            //once cut multiply the cutting factor with No. remaining parts
             ans += (long)(hor*verticalCut[j]);
+            // increment the cut part count
             ver++;
             j++;
         }
     }
-
+    // Do the same operation for left over parts
     while(i<m)
     {
         ans += (long) (ver* horizontalCut[i]);
