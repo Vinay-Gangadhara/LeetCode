@@ -15,6 +15,10 @@ class Solution {
 
         for(int i=0;i<sortedOrder.length;i++)
         {
+            if(sortedOrder[i] == 0)
+            {
+                break;
+            }
             result += (i/8 + 1)*sortedOrder[i] ;
         }
 
