@@ -5,15 +5,7 @@ class Solution {
 
         for(String s : arr)
         {
-            if(hm.containsKey(s))
-            {
-                int count = hm.get(s);
-                hm.put(s,count+1);
-            }
-            else
-            {
-                hm.put(s,1);
-            }
+            hm.put(s,hm.getOrDefault(s,0)+1);
         }
 
         for(int i=0;i<arr.length;i++)
