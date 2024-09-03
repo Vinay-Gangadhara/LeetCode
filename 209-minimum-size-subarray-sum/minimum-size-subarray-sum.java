@@ -18,3 +18,11 @@
         return result == Integer.MAX_VALUE ? 0 : result;
     }
 }
+
+/*
+-----> Main Intution:
+1. keep adding the right element into the sum.
+2. Once added keep removing the left values until sum>=target.
+3. Now update the min value 
+4. result result
+*/
