@@ -4,11 +4,11 @@ class Solution:
         ans = []
         if (False):
             b = L0238(nums,ans,work,"Brute Force")
-        if (False):
+        if (True):
             b = L0238(nums,ans,work,"Use Division")
         if (False):
             b = L0238(nums,ans,work,"n time n space")
-        if (True):
+        if (False):
             b = L0238(nums,ans,work,"n time 1 space")
         return ans
 
