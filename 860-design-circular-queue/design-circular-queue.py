@@ -73,7 +73,6 @@ class Slist():
             self._first = new_node
         self._len += 1
 
-
 class MyCircularQueue:
     def __init__(self, k: int):
         # NOTHING CAN BE CHANGED HERE
@@ -82,21 +81,21 @@ class MyCircularQueue:
 
     def enQueue(self, value: int) -> bool:
         if self._s.get_length() < self._K:
-            self._s.append(value)
+            self._s.insert_first(value)
             return True
         return False
 
     def deQueue(self) -> bool:
         if not self._s.is_empty():
-            self._s.pop_first()
+            self._s.pop_last()
             return True
         return False
 
     def Front(self) -> int:
-        return self._s.peek_first() if not self._s.is_empty() else -1
+        return self._s.peek_last() if not self._s.is_empty() else -1
 
     def Rear(self) -> int:
-        return self._s.peek_last() if not self._s.is_empty() else -1
+        return self._s.peek_first() if not self._s.is_empty() else -1
 
     def isEmpty(self) -> bool:
         return self._s.is_empty()
