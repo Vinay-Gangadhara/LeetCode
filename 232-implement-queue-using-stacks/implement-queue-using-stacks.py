@@ -73,20 +73,25 @@ class Slist():
             self._first = new_node
         self._len += 1
 
-
 class MyQueue:
     def __init__(self):
         # NOTHING CAN BE CHANGED HERE
         self._s = Slist()
 
     def push(self, x: int) -> None:
-        self._s.append(x)
+        self._s.insert_first(x)
 
     def pop(self) -> int:
-        return self._s.pop_first()
+        if self._s.is_empty():
+            return None
+        # To achieve FIFO, we need to remove the last element in the list
+        return self._s.pop_last()
 
     def peek(self) -> int:
-        return self._s.peek_first()
+        if self._s.is_empty():
+            return None
+        # To achieve FIFO, we need to peek at the last element in the list
+        return self._s.peek_last()
 
     def empty(self) -> bool:
         return self._s.is_empty()
