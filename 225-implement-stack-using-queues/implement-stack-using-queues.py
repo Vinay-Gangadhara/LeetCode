@@ -73,24 +73,19 @@ class Slist():
             self._first = new_node
         self._len += 1
 
-############################################################
-#  class  MyStack
-# 225. Implement Stack using Queues
-# https://leetcode.com/problems/implement-stack-using-queues
-########################################################### 
 class MyStack:
     def __init__(self):
         # NOTHING CAN BE CHANGED HERE
         self._s = Slist()
 
     def push(self, x: int) -> None:
-        self._s.append(x)
+        self._s.insert_first(x)
 
     def pop(self) -> int:
-        return self._s.pop_last()
+        return self._s.pop_first()
 
     def top(self) -> int:
-        return self._s.peek_last()
+        return self._s.peek_first()
 
     def empty(self) -> bool:
         return self._s.is_empty()
