@@ -1,12 +1,3 @@
-class ListNode:
-    # NOTHING CAN BE CHANGED HERE
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-         
-############################################################
-#  class  Slist
-###########################################################   
 class Slist():
     def __init__(self):
         # NOTHING CAN BE CHANGED HERE
