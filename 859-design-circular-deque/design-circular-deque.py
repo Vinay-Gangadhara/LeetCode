@@ -73,7 +73,6 @@ class Slist():
             self._first = new_node
         self._len += 1
 
-
 class MyCircularDeque:
     def __init__(self, k: int):
         # NOTHING CAN BE CHANGED HERE
