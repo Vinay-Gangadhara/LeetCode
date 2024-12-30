@@ -15,6 +15,6 @@ class Solution {
         {
             sb.append(stk.pop());
         }
-        return String.valueOf(sb.reverse());
+        return sb.reverse().toString();
     }
 }
